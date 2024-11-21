@@ -1,0 +1,18 @@
+---
+# Install Rust using rustup
+- name: Install Rust via rustup
+  shell: |
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    export PATH="$HOME/.cargo/bin:$PATH"
+  args:
+    executable: /bin/zsh
+  environment:
+    PATH: "{{ ansible_env.HOME }}/.cargo/bin:{{ ansible_env.PATH }}"
+
+# Verify Rust installation
+- name: Verify Rust installation
+  shell: |
+    export PATH="$HOME/.cargo/bin:$PATH"
+    rustc --version
+  args:
+    executable: /bin/zsh

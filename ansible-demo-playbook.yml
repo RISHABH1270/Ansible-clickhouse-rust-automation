@@ -1,0 +1,7 @@
+---
+- name: Install ClickHouse and Rust on localhost
+  hosts: local
+  become: yes
+  roles:
+    - clickhouse
+    - rust
